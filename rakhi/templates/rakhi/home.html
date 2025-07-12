@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jill Creation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+    
+    :root {
+      --primary-orange: #ff6b35;
+      --primary-pink: #e91e63;
+      --primary-gold: #ffd700;
+      --accent-red: #d32f2f;
+      --soft-cream: #fef9f3;
+      --warm-white: #fffef7;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #2c3e50;
+    }
+    
+    .heading-font {
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .hero-bg {
+      background: linear-gradient(135deg, #ff6b35 0%, #e91e63 50%, #d32f2f 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/><circle cx="20" cy="20" r="1" fill="white" opacity="0.1"/><circle cx="80" cy="30" r="1.5" fill="white" opacity="0.1"/><circle cx="30" cy="80" r="1" fill="white" opacity="0.1"/><circle cx="70" cy="70" r="1.5" fill="white" opacity="0.1"/></svg>') repeat;
+      animation: sparkle 20s linear infinite;
+    }
+    
+    @keyframes sparkle {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-100px); }
+    }
+    
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      overflow: hidden;
+      border: 1px solid #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    }
+    
+    .card-image-container {
+      width: 100%;
+      height: 240px;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    
+    .card-image {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+    
+    .card:hover .card-image {
+      transform: scale(1.05);
+    }
+    
+    .card-content {
+      padding: 24px;
+      text-align: center;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    .card-info {
+      margin-bottom: 16px;
+    }
+    
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 8px;
+    }
+    
+    .card-description {
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-bottom: 12px;
+    }
+    
+    .card-price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #e91e63;
+      margin-bottom: 16px;
+    }
+    
+    .category-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .kids-badge { background: #ff6b35; }
+    .midrange-badge { background: #9c27b0; }
+    .couple-badge { background: #e91e63; }
+    
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #25d366;
+      color: white;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      font-size: 14px;
+      min-height: 44px;
+    }
+    
+    .btn-whatsapp:hover {
+      background: #1eb856;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: #2c3e50;
+      margin-bottom: 8px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #ff6b35, #e91e63);
+      border-radius: 2px;
+    }
+    
+    .section-title p {
+      color: #7f8c8d;
+      font-size: 1.1rem;
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+      margin-top: 40px;
+    }
+    
+    .footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 80px;
+    }
+    
+    .decorative-element {
+      display: inline-block;
+      margin: 0 8px;
+      font-size: 1.2rem;
+      animation: gentle-bounce 2s ease-in-out infinite;
+    }
+    
+    .decorative-element:nth-child(2) { animation-delay: 0.3s; }
+    .decorative-element:nth-child(3) { animation-delay: 0.6s; }
+    
+    @keyframes gentle-bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+    }
+    
+    @media (max-width: 768px) {
+      .section-title h2 { font-size: 2rem; }
+      .grid { grid-template-columns: 1fr; gap: 24px; }
+      .hero-bg h1 { font-size: 2.5rem; }
+      .section-container { padding: 0 16px; }
+    }
+    
+    /* Smooth scrolling for navigation */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body style="background-color: var(--soft-cream);">
+  
+  <header class="hero-bg text-white py-16 relative z-10">
+    <div class="section-container">
+      <nav class="flex justify-between items-center mb-8">
+        <div class="flex flex-col">
+          <h1 class="heading-font text-3xl font-bold mb-1">
+            Jill Creation
+          </h1>
+          <p class="text-sm opacity-90">
+            Handmade Rakhis Crafted with Love by Mom
+          </p>
+        </div>
+        <div class="flex items-center space-x-1">
+          <span class="decorative-element text-lg">🎭</span>
+          <span class="decorative-element text-lg">✨</span>
+          <span class="decorative-element text-lg">🌟</span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section id="kids-section" class="py-16">
+    <div class="section-container">
+      <div class="section-title">
+        <h2 class="heading-font">Kids Rakhis</h2>
+        <p>Colorful and delightful designs perfect for little hands</p>
+      </div>
+      <div class="grid">
+        {% for product in kids %}
+        <div class="card">
+          <div class="card-image-container relative">
+            <div class="category-badge kids-badge">Kids Special</div>
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-image">
+          </div>
+          <div class="card-content">
+            <div class="card-info">
+              <h3 class="card-title">{{ product.name }}</h3>
+              <p class="card-description">{{ product.description }}</p>
+              <p class="card-price">₹{{ product.price }}</p>
+            </div>
+            <a href="{{ product.get_whatsapp_link }}" class="btn-whatsapp">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-2.462-.957-4.780-2.712-6.537-1.754-1.756-4.071-2.717-6.533-2.718-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.106-.618zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+              </svg>
+              Order on WhatsApp
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section id="midrange-section" class="py-16" style="background-color: var(--warm-white);">
+    <div class="section-container">
+      <div class="section-title">
+        <h2 class="heading-font">Mid-Range Rakhis</h2>
+        <p>Perfect blend of elegance and affordability</p>
+      </div>
+      <div class="grid">
+        {% for product in midrange %}
+        <div class="card">
+          <div class="card-image-container relative">
+            <div class="category-badge midrange-badge">Popular Choice</div>
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-image">
+          </div>
+          <div class="card-content">
+            <div class="card-info">
+              <h3 class="card-title">{{ product.name }}</h3>
+              <p class="card-description">{{ product.description }}</p>
+              <p class="card-price">₹{{ product.price }}</p>
+            </div>
+            <a href="{{ product.get_whatsapp_link }}" class="btn-whatsapp">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-2.462-.957-4.780-2.712-6.537-1.754-1.756-4.071-2.717-6.533-2.718-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.106-.618zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+              </svg>
+              Order on WhatsApp
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section id="couple-section" class="py-16">
+    <div class="section-container">
+      <div class="section-title">
+        <h2 class="heading-font">Bhaiya-Bhabhi Sets</h2>
+        <p>Beautiful coordinated sets for the perfect couple</p>
+      </div>
+      <div class="grid">
+        {% for product in bhaiya_bhabhi %}
+        <div class="card">
+          <div class="card-image-container relative">
+            <div class="category-badge couple-badge">Couple Set</div>
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-image">
+          </div>
+          <div class="card-content">
+            <div class="card-info">
+              <h3 class="card-title">{{ product.name }}</h3>
+              <p class="card-description">{{ product.description }}</p>
+              <p class="card-price">₹{{ product.price }}</p>
+            </div>
+            <a href="{{ product.get_whatsapp_link }}" class="btn-whatsapp">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-2.462-.957-4.780-2.712-6.537-1.754-1.756-4.071-2.717-6.533-2.718-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.106-.618zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+              </svg>
+              Order on WhatsApp
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="section-container">
+      <p class="text-lg font-medium mb-2">
+        © {{ now|date:"Y" }} Jill Creation • Made with ❤️ by Darsh
+      </p>
+      <p class="text-gray-400">
+        Spreading joy, one handmade Rakhi at a time
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
