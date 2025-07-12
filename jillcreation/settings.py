@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-$aidzyn_@tdqn#49=$agv32nsw&^g_n!e$x1=2egv1b7xhxhm6
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'https://rakhi-k3ux.onrender.com',
+    'rakhi-k3ux.onrender.com',
     'localhost',
     '127.0.0.1',
 ]
