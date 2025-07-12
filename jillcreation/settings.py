@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-$aidzyn_@tdqn#49=$agv32nsw&^g_n!e$x1=2egv1b7xhxhm6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'https://rakhi-k3ux.onrender.com',
+    'localhost',
+    '127.0.0.1',
+]
 
 
 # Application definition
@@ -132,3 +136,5 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 CSRF_TRUSTED_ORIGINS = [
     "https://website-pux3.onrender.com",
 ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
