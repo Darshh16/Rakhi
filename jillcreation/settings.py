@@ -134,7 +134,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://website-pux3.onrender.com",
+   'https://rakhi-k3ux.onrender.com',
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
